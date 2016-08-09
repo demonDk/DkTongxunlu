@@ -81,7 +81,7 @@
     
     UILabel *nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(45, 5, 200, 15)];
     nameLabel.textColor = [UIColor blackColor];
-    nameLabel.font = [UIFont systemFontOfSize:12.0];
+    nameLabel.font = [UIFont systemFontOfSize:13.0];
     nameLabel.tag = 12;
     [cell.contentView addSubview:nameLabel];
     
@@ -144,6 +144,13 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     return 20.0f;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath
+{
+    KzContactsModel *contacts = [[resultList objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:[NSString stringWithFormat:@"%@\n%@",contacts.name,[contacts.phone objectAtIndex:0]] delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+    [alert show];
 }
 
 @end
