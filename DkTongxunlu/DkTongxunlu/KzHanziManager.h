@@ -47,7 +47,7 @@
 /**
  *  返回拼音排序结果,返回的是按拼音首字母分好组的数组
  *
- *  @param contactsArray 分好组的数组
+ *  @param contactsArray 分好组的有序数组
  */
 +(NSMutableArray *)returnSortResult:(NSMutableArray *)contactsArray;
 

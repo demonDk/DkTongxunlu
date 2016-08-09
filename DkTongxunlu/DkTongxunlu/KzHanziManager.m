@@ -15,8 +15,12 @@
 
 +(NSMutableArray *)initAddressBook
 {
+    NSMutableArray *resultArray = [NSMutableArray array];
     KzHanziManager *manager = [[KzHanziManager alloc] init];
-    return [manager loadPerson];
+    resultArray =[manager loadPerson];
+    //排序
+    [self sortContactsNameArray:resultArray key:@"namePinyin"];
+    return resultArray;
 }
 #pragma mark-生成通讯录
 - (NSMutableArray *)loadPerson

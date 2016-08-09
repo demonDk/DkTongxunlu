@@ -12,7 +12,6 @@
 
 @property(nonatomic,copy)NSString *name;
 @property(nonatomic,copy)NSString *namePinyin;
-@property(nonatomic,copy)NSString *tellPhone;
 
 //addressBook
 @property(nonatomic,copy)NSString *firstName;
