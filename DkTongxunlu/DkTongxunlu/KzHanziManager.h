@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface KzHanziManager : NSObject
 
@@ -14,9 +15,11 @@
 /**
  *  初始化通讯录
  *
+ *  @param viewController 当前的viewcontroller
+ *
  *  @return 联系人数组
  */
-+(NSMutableArray *)initAddressBook;
++(NSMutableArray *)initAddressBook:(UIViewController *)viewController;
 
 /**
  *  将汉字转化成英文首字母

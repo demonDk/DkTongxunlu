@@ -20,6 +20,7 @@
 		FF2079681D59857F0041D52B /* KzPhoneBookVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FF2079631D59857F0041D52B /* KzPhoneBookVC.m */; };
 		FF2079691D59857F0041D52B /* pinyin.m in Sources */ = {isa = PBXBuildFile; fileRef = FF2079651D59857F0041D52B /* pinyin.m */; };
 		FF20796F1D5987C80041D52B /* NSString+Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = FF20796E1D5987C80041D52B /* NSString+Utility.m */; };
+		FF4FAA121D62B4D3006890D5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF4FAA111D62B4D3006890D5 /* UIKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,7 @@
 		FF2079651D59857F0041D52B /* pinyin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = pinyin.m; sourceTree = "<group>"; };
 		FF20796D1D5987C80041D52B /* NSString+Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Utility.h"; sourceTree = "<group>"; };
 		FF20796E1D5987C80041D52B /* NSString+Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Utility.m"; sourceTree = "<group>"; };
+		FF4FAA111D62B4D3006890D5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF4FAA121D62B4D3006890D5 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,6 +99,7 @@
 		FF20791E1D59845C0041D52B = {
 			isa = PBXGroup;
 			children = (
+				FF4FAA111D62B4D3006890D5 /* UIKit.framework */,
 				FF2079291D59845C0041D52B /* DkTongxunlu */,
 				FF2079431D59845C0041D52B /* DkTongxunluTests */,
 				FF20794E1D59845C0041D52B /* DkTongxunluUITests */,
@@ -161,10 +165,10 @@
 		FF20795D1D5985270041D52B /* tool */ = {
 			isa = PBXGroup;
 			children = (
-				FF20795E1D59857F0041D52B /* KzContactsModel.h */,
-				FF20795F1D59857F0041D52B /* KzContactsModel.m */,
 				FF2079601D59857F0041D52B /* KzHanziManager.h */,
 				FF2079611D59857F0041D52B /* KzHanziManager.m */,
+				FF20795E1D59857F0041D52B /* KzContactsModel.h */,
+				FF20795F1D59857F0041D52B /* KzContactsModel.m */,
 				FF2079641D59857F0041D52B /* pinyin.h */,
 				FF2079651D59857F0041D52B /* pinyin.m */,
 				FF20796D1D5987C80041D52B /* NSString+Utility.h */,
@@ -543,6 +547,7 @@
 				FF2079561D59845C0041D52B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FF2079571D59845C0041D52B /* Build configuration list for PBXNativeTarget "DkTongxunluTests" */ = {
 			isa = XCConfigurationList;
@@ -551,6 +556,7 @@
 				FF2079591D59845C0041D52B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FF20795A1D59845C0041D52B /* Build configuration list for PBXNativeTarget "DkTongxunluUITests" */ = {
 			isa = XCConfigurationList;
@@ -559,6 +565,7 @@
 				FF20795C1D59845C0041D52B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

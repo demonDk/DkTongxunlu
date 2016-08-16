@@ -33,7 +33,7 @@
     contactsFirstTicList = [NSMutableArray array];
     resultList = [NSMutableArray array];
    
-    PhoneList = [KzHanziManager initAddressBook];//排序后的联系人数组  一个数组
+    PhoneList = [KzHanziManager initAddressBook:self];//排序后的联系人数组  一个数组
     contactsFirstTicList = [KzHanziManager returnPinyinFirstLetter:PhoneList];//拼音首字母数组
     resultList = [KzHanziManager returnSortResult:PhoneList];//按拼音首字母分块的有序数组
 }

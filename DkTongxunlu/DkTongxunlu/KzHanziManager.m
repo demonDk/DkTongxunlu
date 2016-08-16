@@ -13,17 +13,17 @@
 
 @implementation KzHanziManager
 
-+(NSMutableArray *)initAddressBook
++(NSMutableArray *)initAddressBook:(UIViewController *)viewController
 {
     NSMutableArray *resultArray = [NSMutableArray array];
     KzHanziManager *manager = [[KzHanziManager alloc] init];
-    resultArray =[manager loadPerson];
+    resultArray =[manager loadPerson:viewController];
     //排序
     [self sortContactsNameArray:resultArray key:@"namePinyin"];
     return resultArray;
 }
 #pragma mark-生成通讯录
-- (NSMutableArray *)loadPerson
+- (NSMutableArray *)loadPerson:(UIViewController *)viewController
 {
     _contactArray = [NSMutableArray array];
     ABAddressBookRef addressBookRef = ABAddressBookCreateWithOptions(NULL, NULL);
@@ -46,6 +46,42 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             // 更新界面
             // [hud turnToError:@"没有获取通讯录权限"];
+            if(viewController !=nil)
+            {
+                UIAlertController *alertC = [UIAlertController alertControllerWithTitle:nil message:@"请在iPhone的“设置-隐私-通讯录”选项中，允许康众访问你的通讯录。" preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                }];
+                [alertC addAction:cancel];
+                
+                UIAlertAction *setButton = [UIAlertAction actionWithTitle:@"设置" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                    dispatch_after(0.2, dispatch_get_main_queue(), ^{
+                        
+                        NSArray *setArray = @[
+                                              @{@"系统设置":@"prefs:root=INTERNET_TETHERING"},
+                                              @{@"WIFI设置":@"prefs:root=WIFI"},
+                                              @{@"蓝牙设置":@"prefs:root=Bluetooth"},
+                                              @{@"系统通知":@"prefs:root=NOTIFICATIONS_ID"},
+                                              @{@"通用设置":@"prefs:root=General"},
+                                              @{@"显示设置":@"prefs:root=DISPLAY&BRIGHTNESS"},
+                                              @{@"壁纸设置":@"prefs:root=Wallpaper"},
+                                              @{@"声音设置":@"prefs:root=Sounds"},
+                                              @{@"隐私设置":@"prefs:root=Privacy&path=CONTACTS"},
+                                              @{@"APP Store":@"prefs:root=STORE"},
+                                              @{@"Notes":@"prefs:root=NOTES"},
+                                              @{@"Safari":@"prefs:root=Safari"},
+                                              @{@"Music":@"prefs:root=MUSIC"},
+                                              @{@"photo":@"prefs:root=Photos"}
+                                              ];
+                        
+                        NSURL * url = [NSURL URLWithString:[setArray[8] allValues].firstObject];
+                        [[UIApplication sharedApplication]openURL:url];
+                    });
+                }];
+                [alertC addAction:setButton];
+                
+                [viewController presentViewController:alertC animated:YES completion:nil];
+            }
+
             _contactArray = nil;
         });
     }
